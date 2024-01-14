@@ -130,7 +130,7 @@ def update_output_container(selected_statistics,input_year):
 
             # Total Advertisement Expenditure for each vehicle using pie chart
         exp_data=yearly_data.groupby('Vehicle_Type')['Advertising_Expenditure'].sum().reset_index()
-        Y_chart4 = dcc.Graph(px.pie(exp_data,names='Vehicle_Type', values='Advertising_Expenditure', title='Advertising Expenditure by Vehicle Type'))
+        Y_chart4 = dcc.Graph(figure=px.pie(exp_data, values='Advertising_Expenditure', names='Vehicle_Type', title='Advertising Expenditure by Vehicle Type'))
 
 #TASK 2.6: Returning the graphs for displaying Yearly data
         return [
@@ -144,5 +144,6 @@ def update_output_container(selected_statistics,input_year):
 # Run the Dash app
 if __name__ == '__main__':
     app.run_server(debug=True)
+
 
 
